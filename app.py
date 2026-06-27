@@ -30,7 +30,6 @@ from xgboost import XGBClassifier
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from google.colab import files
 
 test_df = pd.read_csv('/content/test.csv')
 
@@ -270,11 +269,8 @@ joblib.dump(
     "model_xgboost.pkl"
 )
 
-from google.colab import files
-files.download("model_xgboost.pkl")
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%writefile app.py
 # import streamlit as st
 # 
 # st.set_page_config(
@@ -433,7 +429,6 @@ files.download("model_xgboost.pkl")
 
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%writefile pages/1_Dashboard_Analysis.py
 # import streamlit as st
 # import pandas as pd
 # import plotly.express as px
@@ -831,7 +826,6 @@ files.download("model_xgboost.pkl")
 #     st.markdown('</div>', unsafe_allow_html=True)
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%writefile pages/2_Model_Evaluation.py
 # import streamlit as st
 # import joblib
 # import pandas as pd
@@ -1336,7 +1330,6 @@ files.download("model_xgboost.pkl")
 #     """, unsafe_allow_html=True)
 
 # Commented out IPython magic to ensure Python compatibility.
-# %%writefile pages/3_Prediction.py
 # import streamlit as st
 # import pandas as pd
 # import joblib
@@ -1774,19 +1767,13 @@ files.download("model_xgboost.pkl")
 
 
 
-from pyngrok import ngrok
 
-ngrok.kill()
 
-ngrok.set_auth_token("3EvgCT3YmB9xDXNjhiv18zktHbY_5N4pg9dG2X69esV99rBGC")
 
-url = ngrok.connect(8501)
 print(url)
 
 print(X_train.columns.tolist())
 
-from google.colab import files
-files.download('model_xgboost.pkl')
 
 import joblib
 metrics = {
@@ -1795,9 +1782,5 @@ metrics = {
     "XGBoost":             {"accuracy": 0.9611, "precision": 0.9612, "recall": 0.9611, "f1": 0.9611},
 }
 joblib.dump(metrics, "metrics.pkl")
-files.download("metrics.pkl")
 
-from google.colab import files
-files.download('model_xgboost.pkl')
-files.download('test.csv')
 
